@@ -22,13 +22,14 @@ jobs:
           path: dist
   deploy:
     name: Deploy 🚀
+    needs: build
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - name: Checkout repository
         uses: actions/checkout@main
       - name: Download artifact
         uses: actions/download-artifact@main
-        with:
+        with: 
           name: dist
           path: dist
       - name: Sync files to hosting
